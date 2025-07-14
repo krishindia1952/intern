@@ -1,6 +1,6 @@
 
 import streamlit as st
-#import pyttsx3
+import pyttsx3
 
 st.set_page_config(page_title="Career Task System", page_icon="🚀", layout="centered")
 
@@ -72,15 +72,15 @@ if not st.session_state.authenticated and st.session_state.current_view == "sign
         submitted = st.form_submit_button("Create Account")
         if submitted:
                         if not name or not mobile or not email or not password or not confirm_password:
-             st.error("❗ All fields are required. Please fill in every detail.")
-            elif not mobile.isdigit() or len(mobile) != 10:
-                st.error("📵 Mobile number must be exactly 10 digits.")
-            elif password != confirm_password:
-                st.error("❌ Passwords do not match.")
-            else :
+                            st.error("❗ All fields are required. Please fill in every detail.")
+                        elif not mobile.isdigit() or len(mobile) != 10:
+                            st.error("📵 Mobile number must be exactly 10 digits.")
+                        elif password != confirm_password:
+                            st.error("❌ Passwords do not match.")
+                        else :
 
 # --- DASHBOARD ---
-if st.session_state.authenticated and st.session_state.current_view == "dashboard":
+                            if st.session_state.authenticated and st.session_state.current_view == "dashboard":
     st.markdown("---")
     st.markdown("### *“Discover yourself through the tasks you enjoy.”*")
     st.markdown("### You're ready to begin your journey!")
@@ -101,7 +101,7 @@ if st.session_state.current_view == "tict":
     task1_text = "List 3 unusual uses for a paperclip. Be imaginative!"
     st.write(task1_text)
     if st.button("🔊"):
-     #   speak_text(task1_text)
+        speak_text(task1_text)
         paperclip_uses = st.text_area("Your Response")
 
 
@@ -110,7 +110,7 @@ if st.session_state.current_view == "tict":
     task2_text ="You wake up one day and realize you can see people's thoughts as colors...\""
     st.write(task2_text)
     if st.button("🔊 "):
-      #  speak_text(task2_text)
+        speak_text(task2_text)
         paperclip_uses = st.text_area("Write what happens next...")
 
 
@@ -118,7 +118,7 @@ if st.session_state.current_view == "tict":
     task2_text = (" People often waste food at parties. Design a system or idea to reduce food waste.")
     st.write(task2_text)
     if st.button("🔊  "):
-       # speak_text(task2_text)
+        speak_text(task2_text)
         paperclip_uses = st.text_area("Describe your creative solution:")
 
 
@@ -140,7 +140,7 @@ You can go upstairs **only once**.
 """
     st.write(task3_text)
     if st.button("🔊   "):
-       # speak_text(task3_text)
+        speak_text(task3_text)
     paperclip_uses = st.text_area(" Your strategy:", key="analytical1",placeholder="enter your strategy")
 else:
     if not paperclip_uses:
@@ -162,7 +162,7 @@ The bat costs ₹100 more than the ball.
 """)
     st.write(task5_text)
     if st.button("🔊     "):
-        #speak_text(task5_text)
+        speak_text(task5_text)
     ball_choice = st.radio("Your answer:", ["₹5", "₹10", "₹15", "₹20"], key="analytical3")
 
     if st.button(" Submit Analytical Tasks"):
